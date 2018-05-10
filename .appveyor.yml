@@ -32,9 +32,9 @@ build_script:
     - cmake .. %CMAKE_CONFIGURE_FLAGS%
     - cmake --build . %CMAKE_BUILD_FLAGS%
 
-artifacts:
-    - path: <local-package-path>
-      name: package_name
+#artifacts:
+#    - path: <local-package-path>
+#      name: package_name
 
 deploy:
     # выкладываем tagged-коммиты на GitHub Releases:
