@@ -3,30 +3,14 @@
 :loop
 
 if "%1" == "" goto :finalize
-if /i "%1" == "msvc10" goto :msvc10
-if /i "%1" == "msvc12" goto :msvc12
 if /i "%1" == "msvc14" goto :msvc14
 if /i "%1" == "msvc15" goto :msvc15
-if /i "%1" == "x86" goto :x86_32-pc-windows-gnu
-if /i "%1" == "i386" goto :x86_32-pc-windows-gnu
 if /i "%1" == "amd64" goto :x86_64-pc-windows-gnu
 if /i "%1" == "x86_64" goto :x86_64-pc-windows-gnu
 if /i "%1" == "x64" goto :x86_64-pc-windows-gnu
 
 echo Invalid argument: '%1'
 exit -1
-
-:msvc10
-set TOOLCHAIN=msvc10
-set CMAKE_GENERATOR=Visual Studio 10 2010
-shift
-goto :loop
-
-:msvc12
-set TOOLCHAIN=msvc12
-set CMAKE_GENERATOR=Visual Studio 12 2013
-shift
-goto :loop
 
 :msvc14
 set TOOLCHAIN=msvc14
@@ -40,12 +24,6 @@ set CMAKE_GENERATOR=Visual Studio 15 2017
 shift
 goto :loop
 
-:x86
-set TARGET_CPU=x86
-set CMAKE_GENERATOR_SUFFIX=
-set OPENSSL_DIR=C:\OpenSSL-Win32
-shift
-goto :loop
 
 :amd64
 set TARGET_CPU=amd64
